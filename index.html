@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fcf8f5" />
+    <meta name="description" content="Preview your own nail photos on a realistic hand in Stylish Tipzz." />
+    <title>Stylish Tipzz — your nail design studio</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#" aria-label="Stylish Tipzz home">
+          <span class="brand-flower" aria-hidden="true">✿</span>
+          <span><strong>stylish tipzz</strong><small>YOUR LITTLE NAIL STUDIO</small></span>
+        </a>
+
+        <div class="sidebar-label">YOUR STUDIO</div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a class="nav-item active" href="#studio"><span class="nav-icon">✳</span> Nail studio <span class="nav-dot"></span></a>
+          <a class="nav-item" href="#designs"><span class="nav-icon">♡</span> My designs</a>
+          <a class="nav-item" href="#inspiration"><span class="nav-icon">▧</span> Inspiration</a>
+        </nav>
+
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">YOUR CURRENT SET</div>
+        <div class="set-card">
+          <div class="set-card-art" aria-hidden="true">♡</div>
+          <div class="set-card-copy"><strong>Your photo set</strong><span>Your pictures · five nails</span></div>
+          <button class="icon-button card-menu" aria-label="More set options">···</button>
+        </div>
+
+        <div class="sidebar-bottom">
+          <div class="tip-card"><span>✿</span><p><strong>A little tip</strong>Mix your own photos across the hand. Tap any nail to pick its picture.</p></div>
+          <button class="profile-button"><span class="avatar">M</span><span><strong>Made for you</strong><small>Your personal studio</small></span><span class="profile-more">⌄</span></button>
+        </div>
+      </aside>
+
+      <main class="main-area" id="studio">
+        <header class="topbar">
+          <div class="topbar-left"><button class="back-button" id="backButton"><span>←</span> Back</button><div class="breadcrumbs"><span>My studio</span><span class="crumb-slash">/</span><strong>New design</strong></div></div>
+          <div class="top-actions">
+            <button class="install-button" id="installButton" hidden>Install app</button>
+            <button class="undo-button" id="undoButton" disabled><span>↶</span> Undo</button>
+            <span class="autosave"><span class="save-check">✓</span> All changes saved</span>
+            <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Switch theme"><span class="theme-icon">☾</span></button>
+            <button class="share-button" id="shareButton"><span>↗</span> Share your set</button>
+          </div>
+        </header>
+
+        <div class="workspace">
+          <section class="design-column" id="designs">
+            <div class="page-heading">
+              <div><div class="eyebrow"><span>✿</span> YOUR CREATIVE CORNER</div><h1>Make it <em>so you.</em></h1><p>Try your photos on each nail and watch your set come to life.</p></div>
+              <button class="text-button" id="resetButton"><span>↺</span> Start over</button>
+            </div>
+
+            <div class="editor-card">
+              <div class="editor-section nail-picker-section">
+                <div class="section-title-row"><div><h2>Your nails</h2><p>Choose a nail for your photo</p></div><span class="nail-count">5 NAILS</span></div>
+                <div class="finger-picker" id="fingerPicker" aria-label="Choose a nail"></div>
+                <div class="selected-note"><span class="tiny-sparkle">✦</span><span id="selectedNoteText">Ring finger selected</span><span class="note-separator">·</span><span>Choose one of your photos</span></div>
+              </div>
+
+              <div class="editor-divider"></div>
+
+              <div class="editor-section">
+                <div class="section-title-row design-title-row"><div><h2>Your photos</h2><p>Only pictures you upload appear here</p></div><button class="upload-button" id="uploadButton"><span>↑</span> Add photos</button><input type="file" id="photoInput" accept="image/*" multiple hidden /></div>
+                <div class="design-grid" id="designGrid"></div>
+                <div class="empty-photos" id="emptyPhotos" hidden>
+                  <span class="empty-photos-icon" aria-hidden="true">♡</span>
+                  <strong>Your photo studio is waiting</strong>
+                  <span>Upload your own pictures to try them on each nail.</span>
+                  <button class="upload-button" id="photoHintButton" type="button"><span>↑</span> Upload your first photo</button>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <section class="preview-column" aria-label="Nail set preview">
+            <div class="preview-heading"><div><div class="eyebrow"><span>✧</span> THE BIG REVEAL</div><h2>Your set, together</h2></div><button class="expand-button" id="expandButton" aria-label="Expand preview" title="Expand preview">⛶</button></div>
+            <div class="preview-stage">
+              <div class="stage-caption"><span class="live-dot"></span> LIVE PREVIEW <span class="caption-separator">·</span> <span id="shapeCaption">SOFT ALMOND</span></div>
+              <div class="nail-display" id="nailDisplay" aria-label="Tap a fingernail to choose a photo">
+                <img class="hand-art" src="images/hand.svg" alt="Illustration of an outstretched hand" draggable="false" />
+                <button class="display-nail thumb" data-finger="0" aria-label="Thumb nail"><span class="nail"><img class="nail-photo" alt="" hidden /></span></button>
+                <button class="display-nail index" data-finger="1" aria-label="Index finger nail"><span class="nail"><img class="nail-photo" alt="" hidden /></span></button>
+                <button class="display-nail middle" data-finger="2" aria-label="Middle finger nail"><span class="nail"><img class="nail-photo" alt="" hidden /></span></button>
+                <button class="display-nail ring" data-finger="3" aria-label="Ring finger nail"><span class="nail"><img class="nail-photo" alt="" hidden /></span></button>
+                <button class="display-nail pinky" data-finger="4" aria-label="Pinky nail"><span class="nail"><img class="nail-photo" alt="" hidden /></span></button>
+              </div>
+              <section class="preview-shapes" aria-label="Choose a nail shape">
+                <div class="preview-shapes-heading"><strong>Nail shape</strong><span>Change it anytime</span></div>
+                <div class="shape-options" id="shapeOptions"></div>
+              </section>
+              <section class="photo-alignment" id="photoAlignment" aria-label="Adjust uploaded photo position" hidden>
+                <div class="alignment-copy"><strong>Photo alignment</strong><span>Move your photo to fit the nail</span></div>
+                <div class="alignment-controls" aria-label="Move photo within nail">
+                  <button class="alignment-button" data-shift="left" aria-label="Move photo left">←</button>
+                  <button class="alignment-button" data-shift="up" aria-label="Move photo up">↑</button>
+                  <button class="alignment-button" data-shift="down" aria-label="Move photo down">↓</button>
+                  <button class="alignment-button" data-shift="right" aria-label="Move photo right">→</button>
+                  <button class="alignment-reset" data-shift="center">Center</button>
+                </div>
+              </section>
+              <div class="stage-footer"><span class="preview-legend"><span class="legend-dot"></span> Your photo, fitted to each nail</span><button class="try-again" id="shuffleButton"><span>⤨</span> Mix my photos</button></div>
+            </div>
+            <div class="set-summary">
+              <div class="summary-icon">✿</div><div class="summary-copy"><strong>A set that’s all yours</strong><span>Every nail, a little different. Every one, so you.</span></div><span class="summary-sparkle">✧</span>
+            </div>
+            <button class="save-set-button" id="saveButton"><span>♡</span> Save this set</button>
+            <p class="preview-footnote"><span>✧</span> Your design is saved right here in your studio</p>
+          </section>
+        </div>
+      </main>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+    <script src="app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.addEventListener("controllerchange", () => window.location.reload());
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "id": "./",
+  "name": "Stylish Tipzz — Nail Design Studio",
+  "short_name": "Stylish Tipzz",
+  "description": "Mix and match nail art, colors, photos, and shapes in your own little nail studio.",
+  "lang": "en",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fcf8f5",
+  "theme_color": "#fcf8f5",
+  "categories": ["lifestyle", "design"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "name": "stylish-tipzz",
+  "version": "1.0.0",
+  "description": "A mix-and-match nail design studio for the web and Windows.",
+  "author": "Stylish Tipzz",
+  "private": true,
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis",
+    "check": "node --check app.js && node --check main.cjs && node --check service-worker.js"
+  },
+  "devDependencies": {
+    "electron": "^45.2.1",
+    "electron-builder": "26.0.12"
+  },
+  "build": {
+    "appId": "com.stylishtipzz.studio",
+    "productName": "Stylish Tipzz",
+    "asar": true,
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "index.html",
+      "styles.css",
+      "app.js",
+      "manifest.webmanifest",
+      "service-worker.js",
+      "main.cjs",
+      "icons/**/*",
+      "images/**/*",
+      "build/icon.ico"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Stylish Tipzz"
+    }
+  }
+}
